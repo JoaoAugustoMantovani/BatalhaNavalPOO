@@ -5,7 +5,7 @@
     public Tabuleiro Tabuleiro { get; set; }
     public List<Navio> Frota { get; set; }
 
-    public Jogador(string nome, Tabuleiro tabuleiro, List<Navio> frota )
+    public Jogador(string nome, Tabuleiro tabuleiro, List<Navio> frota)
     {
         Nome = nome;
         tabuleiro = tabuleiro;
