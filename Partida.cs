@@ -37,6 +37,38 @@
     }
 
 
+    public void PosicionarNaviosJogador()
+    {
+        foreach(Navio navio in Jogador.Frota)
+        {
+            bool posicionado = false;
+
+            while (!posicionado) // repete até que posicionado seja true, pois ele
+                                 // verifica se a posição do navio é válida
+            {
+                Console.WriteLine($"Posicione o navio {navio.Nome}");
+
+                Console.WriteLine("Digite a linha: ");
+                int linha = int.Parse(Console.ReadLine());
+                Console.WriteLine("Digite a coluna: ");
+                int coluna = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Horizontal H ou Vertical V");
+                string horiOuVert = Console.ReadLine().ToUpper();
+
+                bool horizontal = horiOuVert == "H";
+
+                posicionado = Jogador.Tabuleiro.PosicionarNavio(navio, linha, coluna, horizontal);
+
+                if (!posicionado)
+                {
+                    Console.WriteLine("Posição inválida, Repita");
+                }
+            }
+
+        }
+    }
+
     public void AtaqueMaquina()
     {
         ResultadoTiro resultado;
@@ -75,7 +107,7 @@
 
         ResultadoTiro resultado = Maquina.Tabuleiro.ReceberTiro(linha, coluna);
 
-        if(resultado = ResultadoTiro.TiroRepetido || resultado == ResultadoTiro.ForaDoTabuleiro)
+        if(resultado == ResultadoTiro.TiroRepetido || resultado == ResultadoTiro.ForaDoTabuleiro)
         {
             return; //se o tiro for onde ja foi ou fora do tabuleiro o jogador continua coma vez
         }
@@ -95,6 +127,8 @@
         }
 
     }
+
+
 
 
 
