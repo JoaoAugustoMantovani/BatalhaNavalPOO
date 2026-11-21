@@ -89,7 +89,7 @@
     }
 
 
-    public bool VerificarVitoria() //retorna false se um navio ainda não foi atingido
+    public bool VerificarVitoria(Jogador jogador) //retorna false se um navio ainda não foi atingido
     {
         foreach (Navio navio in jogador.Frota)
         {
@@ -152,7 +152,7 @@
         Thread.Sleep(1000);
         Console.Clear();
 
-        while (!PartidaFinalizada())
+        while (!PartidaFinalizada)
         {
             Console.WriteLine("Sua Vez");
             Console.Write("Digite a Linha: ");
