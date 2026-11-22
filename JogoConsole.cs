@@ -1,6 +1,5 @@
 public class JogoConsole
 {
-    public const int TAMANHO = 8;
     private Partida partida;
     private string mensagem = "";
 
@@ -71,9 +70,9 @@ public class JogoConsole
             mensagem = "Formato invalido. Digite dois numeros separados por espaco (ex: 2 3).";
             return;
         }
-        if (linha < 0 || linha >= TAMANHO || coluna < 0 || coluna >= TAMANHO)
+        if (linha < 0 || linha >= Tabuleiro.Tamanho || coluna < 0 || coluna >= Tabuleiro.Tamanho)
         {
-            mensagem = $"Fora do tabuleiro. Use numeros de 1 a {TAMANHO}.";
+            mensagem = $"Fora do tabuleiro. Use numeros de 1 a {Tabuleiro.Tamanho}.";
             return;
         }
 
@@ -95,9 +94,9 @@ public class JogoConsole
             + Descrever(inimigo.ObterCasa(linha, coluna), Afundados(partida.Maquina) > afundadosAntes);
 
         // AtaqueJogador nao informa o tiro da maquina, entao ele e a casa que mudou no meu tabuleiro
-        for (int l = 0; l < TAMANHO; l++)
+        for (int l = 0; l < Tabuleiro.Tamanho; l++)
         {
-            for (int c = 0; c < TAMANHO; c++)
+            for (int c = 0; c < Tabuleiro.Tamanho; c++)
             {
                 if (meu.ObterCasa(l, c) != meuAntes[l, c])
                 {
@@ -133,10 +132,10 @@ public class JogoConsole
 
     private static EstadoCasa[,] CopiarCasas(Tabuleiro tabuleiro)
     {
-        EstadoCasa[,] casas = new EstadoCasa[TAMANHO, TAMANHO];
-        for (int l = 0; l < TAMANHO; l++)
+        EstadoCasa[,] casas = new EstadoCasa[ Tabuleiro.Tamanho, Tabuleiro.Tamanho];
+        for (int l = 0; l < Tabuleiro.Tamanho; l++)
         {
-            for (int c = 0; c < TAMANHO; c++)
+            for (int c = 0; c < Tabuleiro.Tamanho; c++)
             {
                 casas[l, c] = tabuleiro.ObterCasa(l, c);
             }
@@ -175,9 +174,9 @@ public class JogoConsole
     {
         Tabuleiro meu = partida.Jogador.Tabuleiro;
         Tabuleiro inimigo = partida.Maquina.Tabuleiro;
-        int largura = 3 + TAMANHO * 2;
+        int largura = 3 + Tabuleiro.Tamanho * 2;
         string colunas = "   ";
-        for (int coluna = 1; coluna <= TAMANHO; coluna++)
+        for (int coluna = 1; coluna <= Tabuleiro.Tamanho; coluna++)
         {
             colunas += $"{coluna,-2}";
         }
@@ -186,16 +185,16 @@ public class JogoConsole
         Console.WriteLine("   SEU TABULEIRO".PadRight(largura + 6) + "   TABULEIRO INIMIGO");
         Console.WriteLine(colunas.PadRight(largura + 6) + colunas);
 
-        for (int linha = 0; linha < TAMANHO; linha++)
+        for (int linha = 0; linha < Tabuleiro.Tamanho; linha++)
         {
             Console.Write($"{linha + 1,2} ");
-            for (int coluna = 0; coluna < TAMANHO; coluna++)
+            for (int coluna = 0; coluna < Tabuleiro.Tamanho; coluna++)
             {
                 EscreverCasa(meu.ObterCasa(linha, coluna), false);
             }
 
             Console.Write($"      {linha + 1,2} ");
-            for (int coluna = 0; coluna < TAMANHO; coluna++)
+            for (int coluna = 0; coluna < Tabuleiro.Tamanho; coluna++)
             {
                 EscreverCasa(inimigo.ObterCasa(linha, coluna), true);
             }
