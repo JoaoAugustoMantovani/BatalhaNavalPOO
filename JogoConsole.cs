@@ -1,6 +1,6 @@
 public class JogoConsole
 {
-    private const int TAMANHO = 10;
+    public const int TAMANHO = 8;
     private Partida partida;
     private string mensagem = "";
 

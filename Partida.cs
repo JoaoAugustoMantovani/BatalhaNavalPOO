@@ -22,8 +22,8 @@
 
             while (!posicionado)
             {
-                int linha = Random.Shared.Next(0, 10);
-                int coluna = Random.Shared.Next(0, 10);
+                int linha = Random.Shared.Next(0, Tabuleiro.Tamanho);
+                int coluna = Random.Shared.Next(0, Tabuleiro.Tamanho);
 
                 bool horizontal = Random.Shared.Next(0, 2) == 0; //retorn true se for igual a zero(horizontal)
                                                                  //e false se for igual a 1(vertical)
@@ -78,11 +78,11 @@
 
         do
         {
-            linha = Random.Shared.Next(0, 10);
-            coluna = Random.Shared.Next(0, 10);
+            linha = Random.Shared.Next(0, Tabuleiro.Tamanho);
+            coluna = Random.Shared.Next(0, Tabuleiro.Tamanho);
 
             resultado = Jogador.Tabuleiro.ReceberTiro(linha, coluna);
-        } while (resultado = ResultadoTiro.TiroRepetido); //continua até o tiro não ser em um lugar
+        } while (resultado == ResultadoTiro.TiroRepetido); //continua até o tiro não ser em um lugar
                                                           //que tenha sido antes
 
 

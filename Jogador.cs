@@ -8,7 +8,7 @@
     public Jogador(string nome, Tabuleiro tabuleiro, List<Navio> frota)
     {
         Nome = nome;
-        tabuleiro = tabuleiro;
+        Tabuleiro = tabuleiro;
         Frota = frota;
     }
 

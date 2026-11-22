@@ -4,5 +4,5 @@ new JogoConsole(new Partida(jogador, maquina)).Executar();
 
 static List<Navio> CriarFrota()
 {
-    return new List<Navio> { new Submarino(), new PortaAvioes() };
+    return new List<Navio> { new Submarino(), new Submarino(), new Submarino(), new PortaAvioes(), new PortaAvioes() };
 }
