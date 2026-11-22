@@ -1,6 +1,6 @@
 public class Tabuleiro
 {
-    public const int Tamanho = 99;
+    public const int Tamanho = 8;
     private readonly Navio?[,] navios = new Navio?[Tamanho, Tamanho];
     private readonly bool[,] tiros = new bool[Tamanho, Tamanho];
 
